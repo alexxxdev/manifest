@@ -16,23 +16,20 @@
            fetch="https://github.com/AospExtended-Devices" 
            revision="refs/heads/8.1.x" />
 
-  <remote name="alexxxdev"
-           fetch="https://github.com/alexxxdev"
-           revision="8.1.x" />
-
-  <remote name="linaro"
-              fetch="git://android.git.linaro.org/"
-              review="review.android.git.linaro.org" />
-
-  <remote name="aexmod"
-              fetch="https://github.com/AEXmod"
-              revision="refs/heads/8.0" />
-
-  <default revision="refs/tags/android-8.1.0_r9"
+  <default revision="refs/tags/android-8.1.0_r4"
            remote="aosp"
            sync-j="4"
            sync-c="true"/>
- 
+
+  <project path="build/make" name="platform/build" groups="pdk" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
   <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
   <project path="build/kati" name="platform/build/kati" groups="pdk,tradefed" />
   <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" >
@@ -627,7 +624,7 @@
   <project path="tools/external/fat32lib" name="platform/tools/external/fat32lib" groups="tools" />
   <project path="tools/external/gradle" name="platform/tools/external/gradle" groups="tools" clone-depth="1" />
   <project path="tools/idea" name="platform/tools/idea" groups="notdefault,tools" />
-  <project path="tools/loganalysis" name="platform/tools/loganalysis" groups="nopresubmit,pdk,platform_buildtradefed" />
+  <project path="tools/loganalysis" name="platform/tools/loganalysis" groups="nopresubmit,pdk,tradefed" />
   <project path="tools/motodev" name="platform/tools/motodev" groups="notdefault,motodev" />
   <project path="tools/repohooks" name="platform/tools/repohooks" groups="adt-infra,cts,developers,motodev,pdk,tools,tradefed" />
   <project path="tools/studio/cloud" name="platform/tools/studio/cloud" groups="notdefault,tools" />
@@ -641,6 +638,6 @@
   <!-- Custom repos -->
   <include name="mod/remove.xml" />
   <include name="mod/aex.xml" />
-  <include name="mod/mod.xml" />
+  <!--include name="mod/mod.xml" /-->
 
 </manifest>

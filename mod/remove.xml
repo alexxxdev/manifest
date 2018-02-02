@@ -1,9 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-  <!--Repos to remove-->
-  <!--remove-project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" /-->
-
-  <remove-project name="platform/art" />
 
   <remove-project name="device/generic/arm64" />
   <remove-project name="device/generic/armv7-a-neon" />
@@ -67,6 +63,8 @@
   <remove-project name="platform/prebuilts/gdb/darwin-x86" />
   <remove-project name="platform/prebuilts/go/darwin-x86" />
   <remove-project name="platform/prebuilts/python/darwin-x86/2.7.5" />
+  <remove-project name="platform/build" />
+  <remove-project name="platform/build/kati" />
   <remove-project name="platform/build/soong" />
   <remove-project name="platform/bionic" />
   <remove-project name="platform/bootable/recovery" />
@@ -116,5 +114,7 @@
   <remove-project name="platform/system/netd" />
   <remove-project name="platform/external/mksh" />
   <remove-project name="platform/external/toybox" />
+
+  <remove-project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" />
 
 </manifest>
